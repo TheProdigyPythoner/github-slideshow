@@ -1,0 +1,69 @@
+import time
+
+stats = [25, 10, 15, 25]
+weapon = ["wooden sword", 2]
+
+
+# modifies attack power according to weapon strength.
+def check_atk_power():
+    stats[2] += weapon[1]
+
+
+# basic option feature
+def option_x_y():
+    enter = input("x for menu, y for combat.")
+    if enter.capitalize() == "X":
+        menu()
+        return enter
+
+
+# displays stats
+def display_Stats():
+    print("Your health is, " + str(stats[0]))
+    print("Your defense is, " + str(stats[1]))
+    print("Your attack is, " + str(stats[2]))
+    print("Your max health is, " + str(stats[3]))
+    time.sleep(3)
+    answer = input("x to go to menu.")
+    if answer == "x":
+        menu()
+
+
+# displays your weapon
+def display_Weapon():
+    print("Your weapon is the mighty " + weapon[0] + " !")
+    print("Its attack is " + str(weapon[1]))
+
+
+# menu text
+def menu():
+    print("///Welcome to the menu, " + str(name) + " how may i help you.")
+    print("Press 1 for stats.")
+    print("Press 2 for weapons.")
+    print("Press 3 to exit.")
+    answer = int(input(""))
+    if answer == 1:
+        display_Stats()
+    elif answer == 2:
+        display_Weapon()
+    else :
+        menu()
+
+
+print("Welcome to party select!")
+time.sleep(2)
+print("Lets start with the basics.")
+name = input("Name please. ")
+stat_boost = input("Stat to boost?(1)Clever, 2)Reckless, or 3)Tank.)Anything else to have not stat boosts.) ")
+time.sleep(2)
+print("lets go!")
+if int(stat_boost) == 1:
+    stats[0] +=10
+    stats[3] +=10
+elif int(stat_boost) == 2:
+    stats[2] +=10
+elif int(stat_boost) == 3:
+    stats[1] +=10
+
+option_x_y()
+
